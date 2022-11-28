@@ -5,13 +5,15 @@
   color: white;
   display: inline-block;
   max-width: 80%;
+  max-height: fit-content;
+  max-width: fit-content;
 }
 
 .messageText {
   width: 100%;
   letter-spacing: 0;
   float: left;
-  font-size: 1.1em;
+  font-size: 1em;
   word-wrap: break-word;
 }
 
@@ -30,7 +32,7 @@
   display: flex;
   align-items: center;
   font-family: Helvetica;
-  color: #828282;
+  color: #FFF;
   letter-spacing: 0.3px;
 }
 
@@ -51,7 +53,7 @@
 }
 
 .colorWhite {
-  color: white;
+  color: black;
 }
 
 .colorDark {
@@ -59,7 +61,7 @@
 }
 
 .backgroundBlue {
-  background: #2979FF;
+  background: #FAFF1A;
 }
 
 .backgroundLight {

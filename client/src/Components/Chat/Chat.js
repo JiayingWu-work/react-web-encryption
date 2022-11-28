@@ -52,7 +52,7 @@ const Chat = ({ location }) => {
     event.preventDefault();
 
     if(message) {
-      socket.emit('sendMessage', encryptMessage(message), () => setMessage(''));
+      socket.emit('sendMessage', message, () => setMessage(''));
     }
   }
 
@@ -63,7 +63,7 @@ const Chat = ({ location }) => {
         <div className="container">
             <InfoBar room={room} />
             <Messages messages={messages} name={name} />
-            <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+            <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
         </div>
         {/* <TextContainer users={users}/> */}
     </div>

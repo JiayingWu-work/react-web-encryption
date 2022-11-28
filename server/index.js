@@ -9,13 +9,21 @@ const router = require('./router');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors : {
+    origin: '*', 
+    methods: ['GET', 'POST'],
+  },
+});
 
 app.use(cors());
 app.use(router);
 
 io.on('connect', (socket) => {
+  console.log(`socketID ${socket.id}`); 
+
   socket.on('join', ({ name, room }, callback) => {
+    console.log(`user connected ${name}`); 
     const { error, user } = addUser({ id: socket.id, name, room });
 
     if(error) return callback(error);

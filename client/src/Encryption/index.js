@@ -60,7 +60,7 @@ async function decryptMessage(key) {
     );
 
     let dec = new TextDecoder();
-    const decryptedValue = document.querySelector(".input .decrypted-value");
+    const decryptedValue = document.querySelector(".input");
     decryptedValue.classList.add('fade-in');
     decryptedValue.addEventListener('animationend', () => {
       decryptedValue.classList.remove('fade-in');
