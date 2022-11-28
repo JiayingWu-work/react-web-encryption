@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import queryString from 'query-string';
 import io from "socket.io-client";
-
 import Navbar from "../Navbar/Navbar";
 import TextContainer from '../TextContainer/TextContainer';
 import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
-
 import encryptMessage  from '../../Encryption/index.js';
-
-import './Chat.css';
+import '../Chat/chat.css';
 
 const ENDPOINT = 'http://localhost:3001';
 
