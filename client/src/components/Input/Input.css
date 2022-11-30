@@ -11,10 +11,12 @@
   width: 75%;
   font-size: 1.2em;
   border-radius: 20px;
-  margin: 2%; 
+  margin: 2%;
 }
 
-input:focus, textarea:focus, select:focus{
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
 }
 
@@ -22,7 +24,7 @@ input:focus, textarea:focus, select:focus{
   color: black !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #FAFF1A;
+  background: #faff1a;
   display: inline-block;
   border: none;
   width: 18%;

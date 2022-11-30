@@ -1,5 +1,6 @@
-html, body {
-  font-family: 'Roboto', sans-serif;
+html,
+body {
+  font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -18,7 +19,7 @@ html, body {
   text-align: center;
   height: 100vh;
   align-items: center;
-  background-color: #FAFF1A;
+  background-color: #faff1a;
 }
 
 .joinInnerContainer {
@@ -26,38 +27,38 @@ html, body {
 }
 
 .joinInput {
-  border-radius: 0 #7943BD; ;
+  border-radius: 0 #7943bd;
   padding: 15px 20px;
   width: 100%;
-  border-color: #7943BD;
+  border-color: #7943bd;
   justify-content: center;
   text-align: center;
 }
 
 .heading {
-  position: flex; 
+  position: flex;
   color: white;
   padding-bottom: 10px;
-  border-bottom: 2px solid #7943BD;
-  color: #7943BD;  
+  border-bottom: 2px solid #7943bd;
+  color: #7943bd;
   font-size: 30px;
 }
 
 .button {
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #7943BD;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    width: 100%;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #7943bd;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  width: 100%;
 }
 
 .mt-20 {
   margin-top: 20px;
-  border-color: #7943BD;
+  border-color: #7943bd;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -68,8 +69,6 @@ html, body {
   .joinInnerContainer {
     width: 90%;
   }
-
-
 }
 
 button:focus {
