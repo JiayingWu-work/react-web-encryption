@@ -71,6 +71,9 @@ const Chat = ({ location }) => {
               sendMessage={sendMessage}
             />
           </div>
+          <div className="vertical">
+            ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED
+          </div>
         </div>
       </div>
     </>

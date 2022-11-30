@@ -7,6 +7,7 @@
   max-width: 80%;
   max-height: fit-content;
   max-width: fit-content;
+  z-index: 20;
 }
 
 .messageText {
@@ -34,6 +35,7 @@
   font-family: Helvetica;
   color: #fff;
   letter-spacing: 0.3px;
+  z-index: 20;
 }
 
 .pl-10 {
