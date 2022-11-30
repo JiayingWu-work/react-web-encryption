@@ -37,11 +37,11 @@ body {
 
 .heading {
   position: flex;
-  color: white;
   padding-bottom: 10px;
   border-bottom: 2px solid #7943bd;
   color: #7943bd;
   font-size: 30px;
+  color: #000;
 }
 
 .button {
@@ -67,7 +67,7 @@ body {
   }
 
   .joinInnerContainer {
-    width: 90%;
+    width: 100%;
   }
 }
 

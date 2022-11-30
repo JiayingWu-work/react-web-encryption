@@ -6,7 +6,7 @@ import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import encryptMessage from "../../Encryption/index.js";
 
-import "./Chat.css";
+import "./chat.css";
 
 const ENDPOINT = "http://localhost:3001";
 
@@ -56,7 +56,7 @@ const Chat = ({ location }) => {
     <>
       <div className="everythingContainer">
         <div className="headingContainer">
-          <div className="heading">Y O U R _ S E C U R E _ M E S S A G E</div>
+          <div className="chat-heading">Y O U R _ S E C U R E _ M E S S A G E</div>
           <div className="subheading">YOU GOT A SECURE MESSAGE</div>
           <div class="box"></div>
         </div>

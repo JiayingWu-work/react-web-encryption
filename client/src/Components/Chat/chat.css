@@ -9,10 +9,9 @@
   padding: 1rem;
 }
 
-.heading {
+.chat-heading {
   background-size: auto 60vh;
   align-items: center;
-  width: 10rem;
   padding: 2rem;
   font-size: xx-large;
   font-weight: bolder;
@@ -67,14 +66,15 @@
   align-items: center;
   position: absolute;
   z-index: 10;
-  width: 800px;
+  width: max-content;
   height: 50px;
-  margin: 350px 350px 350px 1000px;
+  margin: 450px 350px 350px 1200px;
   color: #ffff00;
   background-color: black;
   border: 10px solid black;
   transform: rotate(-30deg);
   font-size: x-large;
+  opacity: 60%;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
