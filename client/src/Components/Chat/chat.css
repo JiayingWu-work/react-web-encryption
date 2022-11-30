@@ -68,7 +68,7 @@
   z-index: 10;
   width: max-content;
   height: 50px;
-  margin: 450px 350px 350px 1200px;
+  margin: 400px 350px 350px 1200px;
   color: #ffff00;
   background-color: black;
   border: 10px solid black;
@@ -122,3 +122,9 @@
     height: 43px;
   }
 }
+/* 
+@media (min-width: 1200px) {
+  .vertical {
+    margin: 450px 350px 350px 1200px;
+  }
+} */
