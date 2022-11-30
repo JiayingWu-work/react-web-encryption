@@ -1,7 +1,7 @@
 .messageBox {
   background: #f3f3f3;
   border-radius: 20px;
-  padding: 5px 20px;
+  padding: 2px 20px;
   color: white;
   display: inline-block;
   max-width: 80%;
@@ -60,8 +60,8 @@
   color: #353535;
 }
 
-.backgroundBlue {
-  background: #faff1a;
+.backgroundYellow {
+  background: #ffff00;
 }
 
 .backgroundLight {
