@@ -3,7 +3,7 @@ body {
   font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
-  max-width: 1400px;
+  max-width: 100%;
 }
 
 #root {
@@ -24,7 +24,7 @@ body {
 }
 
 .joinInnerContainer {
-  width: 22%;
+  width: 30%;
 }
 
 .joinInput {
@@ -43,6 +43,7 @@ body {
   color: #7943bd;
   font-size: 30px;
   color: #000;
+  justify-self: center;
 }
 
 .button {
@@ -62,13 +63,27 @@ body {
   border-color: #7943bd;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 1400px) {
   .joinOuterContainer {
     height: 100%;
   }
 
   .joinInnerContainer {
+    width: 90%;
+  }
+  
+  .heading {
     width: 100%;
+  }
+}
+
+@media (min-width: 671px) and (max-width: 1400px) {
+  .joinOuterContainer {
+    height: 100%;
+  }
+
+  .joinInnerContainer {
+    width: 30%;
   }
 }
 

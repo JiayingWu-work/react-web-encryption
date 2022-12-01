@@ -1,12 +1,15 @@
 .everythingContainer {
   background-color: #ffff00;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   /* z-index: -1; */
 }
 
 .headingContainer {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  position: relative;
 }
 
 .chat-heading {
@@ -35,13 +38,13 @@
 .outerContainer {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   background: #612d98;
   border-radius: 10px;
   height: 70%;
@@ -77,9 +80,25 @@
   opacity: 60%;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
-  .outerContainer {
+@media (min-width: 320px) and (max-width: 768px) {
+  .everythingContainer{
+    width: 100%;
     height: 100%;
+  }
+
+  .headingContainer {
+    height: 12%;
+    width: 100%;
+  }
+
+  .chat-heading {
+    align-items: flex-start;
+    font-size: 8px;
+    overflow: visible;
+    white-space: nowrap;
+    margin-left: -20px;
+    margin-top: 10px;
+    font-size: medium;
   }
 
   .container {
@@ -87,44 +106,26 @@
     height: 100%;
   }
 
-  .heading {
+  .chat-heading {
     width: 80%;
+    word-wrap: normal;
   }
 
   .subheading {
     display: none;
   }
-
-  .box {
+  .box{
     display: none;
   }
+
 }
 
-@media (min-width: 480px) and (max-width: 1200px) {
+
+@media (min-width: 769px) {
   .container {
-    width: 80%;
-  }
-
-  .heading {
-    width: 50%;
-  }
-
-  .subheading {
-    display: none;
-  }
-
-  .box {
-    display: none;
-  }
-
-  .vertical {
-    width: 600px;
-    height: 43px;
+    justify-content: center;
+    margin: auto;
+    height: 80%;
   }
 }
-/* 
-@media (min-width: 1200px) {
-  .vertical {
-    margin: 450px 350px 350px 1200px;
-  }
-} */
+

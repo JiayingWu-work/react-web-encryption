@@ -69,3 +69,11 @@
 .backgroundLight {
   background: #f3f3f3;
 }
+
+@media (min-width: 480px) and (max-width: 678px) {
+  .messageBox {
+    justify-content: center;
+
+  }
+
+}

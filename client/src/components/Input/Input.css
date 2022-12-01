@@ -34,3 +34,14 @@ textarea:focus,
 select:focus {
   outline: none;
 }
+
+@media (min-width: 320px) and (max-width: 680px) {
+  .input {
+    height: 70%;
+  }
+
+  .sendButton {
+    height: 70%;
+  }
+
+}

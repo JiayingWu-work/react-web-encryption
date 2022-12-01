@@ -32,12 +32,15 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
   .infoBar {
-    height: 50px;
+    height: 10%;
+    font-size: .5rem;
   }
+
+
 }
 
-@media (min-width: 480px) and (max-width: 1200px) {
+@media (min-width: 480px) and (max-width: 680px) {
   .infoBar {
-    height: 50px;
+    height: 10%
   }
 }

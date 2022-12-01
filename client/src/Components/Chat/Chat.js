@@ -58,11 +58,9 @@ const Chat = ({ location }) => {
         <div className="headingContainer">
           <div className="chat-heading">Y O U R _ S E C U R E _ M E S S A G E</div>
           <div className="subheading">YOU GOT A SECURE MESSAGE</div>
-          <div class="box"></div>
-        </div>
-
-        <div className="outerContainer">
-          <div className="container">
+          <div className="box"></div>
+      </div>
+      <div className="container">
             <InfoBar room={room} />
             <Messages messages={messages} name={name} />
             <Input
@@ -71,10 +69,9 @@ const Chat = ({ location }) => {
               sendMessage={sendMessage}
             />
           </div>
-          <div className="vertical">
-            ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED
-          </div>
-        </div>
+          {/* <div className="vertical">
+            ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED
+          </div> */}
       </div>
     </>
   );
