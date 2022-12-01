@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
-import encryptMessage from "../../Encryption/index.js";
+import { encryptMessage, decryptMessage } from '../../Encryption/index.js';
 
 import "./chat.css";
 
@@ -36,6 +36,8 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on("message", (message) => {
+      // do decryption here. method put. key tbd
+      // var decrypted = decryptMessage(encryptedMessage, "key");
       setMessages((messages) => [...messages, message]);
     });
 
@@ -48,7 +50,9 @@ const Chat = ({ location }) => {
     event.preventDefault();
 
     if (message) {
-      socket.emit("sendMessage", message, () => setMessage(""));
+      //encrypting messages with encryptMessage() before sending them to the server 
+      var encrypted = encryptMessage(message);
+      socket.emit("sendMessage", encrypted, () => setMessage(""));
     }
   };
 
@@ -56,20 +60,22 @@ const Chat = ({ location }) => {
     <>
       <div className="everythingContainer">
         <div className="headingContainer">
-          <div className="chat-heading">Y O U R _ S E C U R E _ M E S S A G E</div>
+          <div className="chat-heading">
+            Y O U R _ S E C U R E _ M E S S A G E
+          </div>
           <div className="subheading">YOU GOT A SECURE MESSAGE</div>
           <div className="box"></div>
-      </div>
-      <div className="container">
-            <InfoBar room={room} />
-            <Messages messages={messages} name={name} />
-            <Input
-              message={message}
-              setMessage={setMessage}
-              sendMessage={sendMessage}
-            />
-          </div>
-          {/* <div className="vertical">
+        </div>
+        <div className="container">
+          <InfoBar room={room} />
+          <Messages messages={messages} name={name} />
+          <Input
+            message={message}
+            setMessage={setMessage}
+            sendMessage={sendMessage}
+          />
+        </div>
+        {/* <div className="vertical">
             ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED
           </div> */}
       </div>

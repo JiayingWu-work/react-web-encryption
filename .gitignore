@@ -1,1 +1,8 @@
 /netlify
+client/package-lock.json
+
+client/package.json
+
+server/node_modules/.package-lock.json
+
+server/package.json
