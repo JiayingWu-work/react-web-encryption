@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
-import { encryptMessage, decryptMessage } from '../../Encryption/index.js';
+import { encryptMessage, decryptMessage } from "../../Encryption/index.js";
 
 import "./chat.css";
 
@@ -50,7 +50,7 @@ const Chat = ({ location }) => {
     event.preventDefault();
 
     if (message) {
-      //encrypting messages with encryptMessage() before sending them to the server 
+      //encrypting messages with encryptMessage() before sending them to the server
       var encrypted = encryptMessage(message);
       socket.emit("sendMessage", encrypted, () => setMessage(""));
     }
@@ -75,9 +75,7 @@ const Chat = ({ location }) => {
             sendMessage={sendMessage}
           />
         </div>
-        {/* <div className="vertical">
-            ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED
-          </div> */}
+        {/* <div className="vertical">ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED</div> */}
       </div>
     </>
   );

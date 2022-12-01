@@ -15,7 +15,7 @@ export const encryptMessage = (message) => {
       "encrypt",
       "decrypt",
     ])
-    .then(function (key) {
+    .then(function(key) {
       console.log("key:" + key);
       //iv is something can make encryption more secure
       var iv = window.crypto.getRandomValues(new Uint8Array(12));
@@ -23,17 +23,17 @@ export const encryptMessage = (message) => {
       //encrypt the array buffer message
       window.crypto.subtle
         .encrypt({ name: "AES-GCM", iv: iv }, key, arrayBufferMessage)
-        .then(function (encrypted) {
+        .then(function(encrypted) {
           console.log("encrypted!!!");
           // encryptedMessage = `${buffer}...[${ciphertext.byteLength} bytes total]`;
           encryptedMessage = new Uint8Array(encrypted, 0, 5);
           console.log("encrypted message:" + encryptedMessage);
         })
-        .catch(function (err) {
+        .catch(function(err) {
           console.error(err);
         });
     })
-    .catch(function (err) {
+    .catch(function(err) {
       console.error(err);
     });
 
@@ -55,11 +55,11 @@ export const decryptMessage = (abMessage, key) => {
       key, //from generateKey or importKey above
       abMessage //ArrayBuffer of the data
     )
-    .then(function (decrypted) {
+    .then(function(decrypted) {
       //returns an ArrayBuffer containing the decrypted data
       console.log(new Uint8Array(decrypted));
     })
-    .catch(function (err) {
+    .catch(function(err) {
       console.error(err);
     });
 };

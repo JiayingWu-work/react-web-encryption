@@ -15,7 +15,7 @@
   border-radius: 50px;
   text-align: center;
   margin: 1% 2%;
-  z-index: 12; 
+  z-index: 12;
 }
 
 .input {
@@ -43,5 +43,4 @@ select:focus {
   .sendButton {
     height: 70%;
   }
-
 }
