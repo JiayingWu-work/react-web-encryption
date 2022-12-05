@@ -8,7 +8,7 @@ import { encryptMessage, decryptMessage } from "../../Encryption/index.js";
 
 import "./chat.css";
 
-const ENDPOINT = "http://localhost:3001";
+const ENDPOINT = "https://nameless-gorge-00432.herokuapp.com";
 
 let socket;
 
