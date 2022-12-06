@@ -6,3 +6,6 @@ client/package.json
 server/node_modules/.package-lock.json
 
 server/package.json
+
+# Local Netlify folder
+.netlify
