@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 0;
   margin: 0;
   max-width: 100%;
@@ -89,4 +89,8 @@ body {
 
 button:focus {
   outline: 0;
+}
+
+#text {
+  display: none;
 }
