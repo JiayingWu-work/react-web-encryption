@@ -126,8 +126,13 @@
   }
 }
 
+/* MacBook Pro 14' */
 @media (min-width: 1440px) {
   .subheading {
-    padding-top: 4.5rem;
+    padding-top: 5.5rem;
   }
 }
+
+/* MacBook Air 13' */
+/* @media (min-width: 1280px) and (max-width: 1440px) {
+} */

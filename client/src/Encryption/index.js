@@ -17,6 +17,8 @@ export const encryptMessage = (message) => {
     ])
     .then(function(key) {
       console.log("key:" + key);
+      const keyData = key.decrypt(key);
+      console.log("key type:" + keyData);
       //iv is something can make encryption more secure
       var iv = window.crypto.getRandomValues(new Uint8Array(12));
       console.log("iv:" + iv);
@@ -58,6 +60,7 @@ export const decryptMessage = (abMessage, key) => {
     .then(function(decrypted) {
       //returns an ArrayBuffer containing the decrypted data
       console.log(new Uint8Array(decrypted));
+      // console.log(key);
     })
     .catch(function(err) {
       console.error(err);
