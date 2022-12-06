@@ -106,8 +106,12 @@
   }
 
   .chat-heading {
-    width: 80%;
-    word-wrap: normal;
+    width: 40%;
+    white-space: normal;
+    font-size: x-large;
+  }
+  .box {
+    display: none;
   }
 
   .subheading {
@@ -118,11 +122,28 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .container {
     justify-content: center;
     margin: auto;
-    height: 80%;
+    height: 88%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    justify-content: center;
+    margin: auto;
+    height: 88%;
+  }
+
+  .chat-heading {
+    font-size: xx-large;
+  }
+
+  .subheading {
+    padding-top: 5.5rem; 
+    display: flex;
   }
 }
 
@@ -137,7 +158,7 @@
   .container {
     justify-content: center;
     margin: auto;
-    height: 85%;
+    height: 88%;  
   }
 
   .everythingContainer {
@@ -145,6 +166,10 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+
+  .subheading {
+    display: none;
   }
 }
 /* MacBook Air 13' */

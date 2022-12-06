@@ -90,7 +90,3 @@ body {
 button:focus {
   outline: 0;
 }
-
-#text {
-  display: none;
-}
