@@ -15,7 +15,7 @@
   background-size: auto 60vh;
   align-items: center;
   padding: 2rem;
-  font-size: xx-large;
+  font-size: 3vw;
   font-weight: bolder;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-bottom: none !important;
@@ -28,10 +28,14 @@
   padding-top: 5.5rem;
   padding-left: 5rem;
   right: 10%;
-  font-size: xx-large;
+  font-size: 2.5vw;
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 58%;
+  text-decoration-thickness: 8px;
+  text-decoration-color: #612d98;
+  text-decoration-line: underline;
+  padding-bottom: 2%;
 }
 
 .outerContainer {
@@ -58,9 +62,10 @@
   top: 7rem;
   background: #612d98;
   border-radius: 5px;
-  font-size: 150%;
+  font-size: 8vw;
   height: 20px;
   margin-left: 100px;
+  width: 47%;
 }
 
 .vertical {
@@ -91,13 +96,11 @@
   }
 
   .chat-heading {
-    align-items: flex-start;
-    font-size: 8px;
     overflow: visible;
-    white-space: nowrap;
     margin-left: -20px;
-    margin-top: 10px;
-    font-size: medium;
+    margin-bottom: 20px;
+    margin-top: -4%;
+    font-size: 2.5vw;
   }
 
   .container {
@@ -105,20 +108,32 @@
     height: 100%;
   }
 
-  .chat-heading {
+  /* .chat-heading {
     width: 40%;
     white-space: normal;
     font-size: x-large;
-  }
-  .box {
+  } */
+  /* .box {
     display: none;
-  }
+  } */
 
   .subheading {
-    display: none;
+    display: flex;
+    font-size: 2.8vw;
+    padding-top: 6vw;
+    padding-bottom: 5%;
+    padding-left: 15%;
+    white-space: nowrap;
+    text-decoration-thickness: 8px;
+    text-decoration-color: #612d98;
+    text-decoration-line: underline;
   }
   .box {
-    display: none;
+    display: flex;
+    top: 60%;
+    margin-left: 20%;
+    height: 2vw;
+    margin-top: 1%;
   }
 }
 
@@ -128,9 +143,19 @@
     margin: auto;
     height: 88%;
   }
+
+  .chat-heading {
+    font-size: 3vw;
+  }
+
+  .subheading {
+    text-decoration-thickness: 8px;
+    text-decoration-color: #612d98;
+    text-decoration-line: underline;
+  }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 968px) {
   .container {
     justify-content: center;
     margin: auto;
@@ -166,10 +191,6 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-  }
-
-  .subheading {
-    display: none;
   }
 }
 /* MacBook Air 13' */
