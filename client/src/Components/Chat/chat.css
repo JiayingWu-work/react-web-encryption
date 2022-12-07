@@ -20,41 +20,108 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-bottom: none !important;
   color: black !important;
-  width: 30%;
+  width: 40%;
 }
 
 .subheading {
   z-index: 3;
   padding-top: 5.5rem;
-  padding-left: 5rem;
-  right: 10%;
+  /* justify-content: right; */
+  /* padding-left: 10rem; */
+  /* right: 40%; */
   font-size: 2.5vw;
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  width: 58%;
+  width: 40%;
   text-decoration-thickness: 8px;
   text-decoration-color: #612d98;
   text-decoration-line: underline;
   padding-bottom: 2%;
 }
 
-.outerContainer {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-}
-
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-around;
   background: #612d98;
   border-radius: 10px;
-  height: 70%;
+  height: 80%;
   width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.box {
+@media (min-width: 320px) and (max-width: 425px) {
+  .headingContainer {
+    height: 9%;
+  }
+
+  .subheading {
+    padding-top: 2.8rem;
+    width: 45%;
+    text-decoration-thickness: 4px;
+  }
+
+  .chat-heading {
+    width: 50%;
+  }
+
+  .container {
+    width: 95%;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 480px) {
+  .headingContainer {
+    height: 10.5%;
+  }
+
+  .subheading {
+    padding-top: 2.8rem;
+    width: 45%;
+    text-decoration-thickness: 4px;
+  }
+
+  .chat-heading {
+    width: 50%;
+  }
+
+  .container {
+    width: 95%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .subheading {
+    padding-top: 4rem;
+    text-decoration-thickness: 6px;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .subheading {
+    padding-top: 4.2rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .subheading {
+    padding-top: 4.3rem;
+  }
+}
+
+/* 320px — 480px for mobile devices, 
+481px — 768px for iPads & tablets, 
+769px — 1024px for small screens like laptop, 
+1025px — 1200px for large screens like Desktops, 
+and 1201px and above for extra large screens like TV. */
+
+/* .box {
   position: absolute;
   z-index: 1;
   left: 35%;
@@ -66,8 +133,9 @@
   height: 20px;
   margin-left: 100px;
   width: 47%;
-}
+} */
 
+/* 
 .vertical {
   justify-content: center;
   align-items: center;
@@ -82,9 +150,39 @@
   transform: rotate(-30deg);
   font-size: x-large;
   opacity: 60%;
+} */
+
+/* @media (min-width: 320px) and (max-width: 370px) {
+  .container {
+    justify-content: center;
+    margin: auto;
+    height: 88%;
+  }
+
+  .everythingContainer {
+    background-color: #ffff00;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 370px) and (max-width: 420px) {
+  .container {
+    justify-content: center;
+    margin: auto;
+    height: 88%;
+  }
+
+  .everythingContainer {
+    background-color: #ffff00;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 320px) {
   .everythingContainer {
     width: 100%;
     height: 100%;
@@ -108,36 +206,20 @@
     height: 100%;
   }
 
-  /* .chat-heading {
-    width: 40%;
-    white-space: normal;
-    font-size: x-large;
-  } */
-  /* .box {
-    display: none;
-  } */
-
   .subheading {
     display: flex;
     font-size: 2.8vw;
-    padding-top: 6vw;
+    padding-top: 14vw;
     padding-bottom: 5%;
-    padding-left: 15%;
+    padding-left: 10%;
     white-space: nowrap;
     text-decoration-thickness: 8px;
     text-decoration-color: #612d98;
     text-decoration-line: underline;
   }
-  .box {
-    display: flex;
-    top: 60%;
-    margin-left: 20%;
-    height: 2vw;
-    margin-top: 1%;
-  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 968px) {
   .container {
     justify-content: center;
     margin: auto;
@@ -155,7 +237,7 @@
   }
 }
 
-@media (min-width: 968px) {
+@media (min-width: 968px) and (max-width: 1024px) {
   .container {
     justify-content: center;
     margin: auto;
@@ -167,32 +249,14 @@
   }
 
   .subheading {
-    padding-top: 5.5rem; 
+    padding-top: 5.5rem;
     display: flex;
   }
 }
 
 /* MacBook Pro 14' */
-@media (min-width: 1440px) {
+/* @media (min-width: 1440px) {
   .subheading {
     padding-top: 5.5rem;
   }
-}
-
-@media (min-width: 320px) and (max-width:420px) {
-  .container {
-    justify-content: center;
-    margin: auto;
-    height: 88%;  
-  }
-
-  .everythingContainer {
-    background-color: #ffff00;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-}
-/* MacBook Air 13' */
-/* @media (min-width: 1280px) and (max-width: 1440px) {
-} */
+}  */

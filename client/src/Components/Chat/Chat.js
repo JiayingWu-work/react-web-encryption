@@ -4,7 +4,11 @@ import io from "socket.io-client";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
-import { encryptMessage, decryptMessage, arraybufferToString } from "../../Encryption/index.js";
+import {
+  encryptMessage,
+  decryptMessage,
+  arraybufferToString,
+} from "../../Encryption/index.js";
 
 import "./chat.css";
 
@@ -49,7 +53,7 @@ const Chat = ({ location }) => {
   const sendMessage = async (event) => {
     event.preventDefault();
     if (message) {
-      console.log("test the message in send message"+message);
+      console.log("test the message in send message" + message);
       //encrypting messages with encryptMessage() before sending them to the server
       const encryptionPackage = await encryptMessage(message, key);
       const encryptedArrayBuffer = encryptionPackage[0];
@@ -57,7 +61,11 @@ const Chat = ({ location }) => {
       // const decryptedBuffer = await decryptMessage(encryptionPackage[0], key, encryptionPackage[1]);
       // const decryptedM = arraybufferToString(decryptedBuffer);
       // console.log("decrypte message before sending:" + decryptedM);
-      socket.emit("sendMessage", "this is the array buffer " + encryptionPackage[0], () => setMessage(""));
+      socket.emit(
+        "sendMessage",
+        "this is the array buffer " + encryptionPackage[0],
+        () => setMessage("")
+      );
       console.log("sent");
     }
   };
@@ -70,7 +78,7 @@ const Chat = ({ location }) => {
             Y O U R _ S E C U R E _ M E S S A G E
           </div>
           <div className="subheading">YOU GOT A SECURE MESSAGE</div>
-          <div className="box"></div>
+          {/* <div className="box"></div> */}
         </div>
         <div className="container">
           <InfoBar room={room} />
