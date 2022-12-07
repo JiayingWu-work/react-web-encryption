@@ -1,9 +1,28 @@
 import React, { useState } from "react";
 import "./Message.css";
 import ReactEmoji from "react-emoji";
-import encryptMessage from "../../../Encryption/index.js";
+import {
+  encryptMessage,
+  decryptMessage,
+  arraybufferToString,
+} from "../../../Encryption/index.js";
 
 const Message = ({ message: { text, user }, name }) => {
+
+  //////////////////////this chuck is for testing
+  console.log("type of text:" + typeof(text));
+  if (typeof text == []) {
+    console.log("text content:" + text);
+    console.log(
+      "test the array buffer:" +
+        text[0] +
+        "and iv in message before decryption:" +
+        text[1]
+    );
+  }
+  console.log("text content:" + text);
+  ///////////////////////////////////////////////
+
   let isSentByCurrentUser = false;
   const trimmedName = name.trim().toLowerCase();
 

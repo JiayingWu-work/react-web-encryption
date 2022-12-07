@@ -1,68 +1,74 @@
-import React from "react";
-import ReactDOM from "react-dom";
 
-export const encryptMessage = (message) => {
-  console.log("message:" + message);
-  var encryptedMessage;
-  let enc = new TextEncoder();
+
+export const encryptMessage = async (message, stringKey) => {
+  console.log("message in encryption method:" + message);
+
+  let iv = window.crypto.getRandomValues(new Uint8Array(12));
+  console.log("iv in encryption:"+ iv);
+
   //message needs to be converted into arrayBuffer so aes-gcm can take it as a parameter
-  var arrayBufferMessage = enc.encode(message);
-  console.log("message:" + arrayBufferMessage);
+  var unit8ArrayrMessage = new TextEncoder().encode(message)
+  console.log("unit8Array message in encryption method:" + unit8ArrayrMessage);
 
-  //get the key first
-  window.crypto.subtle
-    .generateKey({ name: "AES-GCM", length: 256 }, false, [
-      "encrypt",
-      "decrypt",
-    ])
-    .then(function(key) {
-      console.log("key:" + key);
-      const keyData = key.decrypt(key);
-      console.log("key type:" + keyData);
-      //iv is something can make encryption more secure
-      var iv = window.crypto.getRandomValues(new Uint8Array(12));
-      console.log("iv:" + iv);
-      //encrypt the array buffer message
-      window.crypto.subtle
-        .encrypt({ name: "AES-GCM", iv: iv }, key, arrayBufferMessage)
-        .then(function(encrypted) {
-          console.log("encrypted!!!");
-          // encryptedMessage = `${buffer}...[${ciphertext.byteLength} bytes total]`;
-          encryptedMessage = new Uint8Array(encrypted, 0, 5);
-          console.log("encrypted message:" + encryptedMessage);
-        })
-        .catch(function(err) {
-          console.error(err);
-        });
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
+  const cryptoKey = await getCryptoKey(stringKey, "encrypt");
+  console.log("key in encryption method:" + cryptoKey);
 
-  //probably we can fetch data directly but this works for now
-  if (encryptedMessage != "") {
-    return encryptedMessage + " " + "actually encrypted";
-  }
+  const encryptedArrayBuffer = await window.crypto.subtle.encrypt(
+    {
+      name: "AES-GCM",
+      iv,
+    },
+    cryptoKey,
+    unit8ArrayrMessage
+  );
+  console.log("encrypted array buffer message in encryption method:" + encryptedArrayBuffer);
+  
+  return  [ encryptedArrayBuffer, iv ];
 };
 
-//waiting to be implemented
+// convert the string key from the url back to cryptokey for
+// the decryption method
+export const getCryptoKey = (key, usage) => {
+  return window.crypto.subtle.importKey(
+    "jwk",
+    {
+      alg: "A256GCM",
+      ext: true,
+      k: key,
+      key_ops: ["encrypt", "decrypt"],
+      kty: "oct",
+    },
+    {
+      name: "AES-GCM",
+      length: 256,
+    },
+    false, // extractable
+    [usage]
+  );
+};
+
+export const arraybufferToString = (arrayBuffer) => {
+  return new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer));
+}
+
 //abMessage --> array buffer message
-export const decryptMessage = (abMessage, key) => {
-  window.crypto.subtle
-    .decrypt(
-      {
-        name: "AES-GCM",
-        iv: ArrayBuffer(12), //The initialization vector you used to encrypt
-      },
-      key, //from generateKey or importKey above
-      abMessage //ArrayBuffer of the data
-    )
-    .then(function(decrypted) {
-      //returns an ArrayBuffer containing the decrypted data
-      console.log(new Uint8Array(decrypted));
-      // console.log(key);
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
+export const decryptMessage = async (abMessage, stringKey, iv) => {
+  console.log("array buffer message passed to decryption method:" + abMessage);
+
+  let cryptoKey = await getCryptoKey(stringKey, "decrypt");
+  console.log("crypto key converted in decryption method:" + cryptoKey);
+
+  const decryptedBuffer = await window.crypto.subtle.decrypt(
+    {
+      name: "AES-GCM",
+      iv: iv, //The initialization vector you used to encrypt
+    },
+    cryptoKey, //from generateKey or importKey above
+    abMessage //ArrayBuffer of the data
+  );
+  console.log("decrypted array buffer:" + decryptedBuffer);
+
+  console.log("decrypted unit8Array:" + new Uint8Array(decryptedBuffer));
+
+  return decryptedBuffer;
 };

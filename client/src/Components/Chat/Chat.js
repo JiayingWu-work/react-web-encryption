@@ -4,11 +4,11 @@ import io from "socket.io-client";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
-import { encryptMessage, decryptMessage } from "../../Encryption/index.js";
+import { encryptMessage, decryptMessage, arraybufferToString } from "../../Encryption/index.js";
 
 import "./chat.css";
 
-const ENDPOINT = "https://nameless-gorge-00432.herokuapp.com";
+const ENDPOINT = "http://localhost:3001";
 
 let socket;
 
@@ -18,14 +18,16 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState("");
   const [message, setMessage] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [key, setKey] = useState("");
 
   useEffect(() => {
-    const { name, room } = queryString.parse(window.location.search);
+    const { name, room, key } = queryString.parse(window.location.search);
 
     socket = io(ENDPOINT);
 
     setRoom(room);
     setName(name);
+    setKey(key);
 
     socket.emit("join", { name, room }, (error) => {
       if (error) {
@@ -36,8 +38,6 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on("message", (message) => {
-      // do decryption here. method put. key tbd
-      // var decrypted = decryptMessage(encryptedMessage, "key");
       setMessages((messages) => [...messages, message]);
     });
 
@@ -46,13 +46,19 @@ const Chat = ({ location }) => {
     });
   }, []);
 
-  const sendMessage = (event) => {
+  const sendMessage = async (event) => {
     event.preventDefault();
-
     if (message) {
+      console.log("test the message in send message"+message);
       //encrypting messages with encryptMessage() before sending them to the server
-      var encrypted = encryptMessage(message);
-      socket.emit("sendMessage", encrypted, () => setMessage(""));
+      const encryptionPackage = await encryptMessage(message, key);
+      const encryptedArrayBuffer = encryptionPackage[0];
+      // console.log("test before sending to server:" + new Uint8Array(encryptionPackage[0]));
+      // const decryptedBuffer = await decryptMessage(encryptionPackage[0], key, encryptionPackage[1]);
+      // const decryptedM = arraybufferToString(decryptedBuffer);
+      // console.log("decrypte message before sending:" + decryptedM);
+      socket.emit("sendMessage", "this is the array buffer " + encryptionPackage[0], () => setMessage(""));
+      console.log("sent");
     }
   };
 
