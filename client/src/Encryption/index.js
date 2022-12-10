@@ -53,7 +53,7 @@ export const arraybufferToString = (arrayBuffer) => {
 
 //abMessage --> array buffer message
 export const decryptMessage = async (abMessage, stringKey, iv) => {
-  console.log("array buffer message passed to decryption method:" + abMessage);
+  console.log("array buffer message passed to decryption method:" + new Uint8Array(abMessage));
 
   let cryptoKey = await getCryptoKey(stringKey, "decrypt");
   console.log("crypto key converted in decryption method:" + cryptoKey);

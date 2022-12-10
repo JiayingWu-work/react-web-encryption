@@ -4,11 +4,7 @@ import io from "socket.io-client";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
-import {
-  encryptMessage,
-  decryptMessage,
-  arraybufferToString,
-} from "../../Encryption/index.js";
+import { encryptMessage } from "../../Encryption/index.js";
 
 import "./chat.css";
 
@@ -55,18 +51,29 @@ const Chat = ({ location }) => {
     if (message) {
       console.log("test the message in send message" + message);
       //encrypting messages with encryptMessage() before sending them to the server
+      // encryptionPackage = [array buffer from encryption, iv in uint8array]
       const encryptionPackage = await encryptMessage(message, key);
-      const encryptedArrayBuffer = encryptionPackage[0];
-      // console.log("test before sending to server:" + new Uint8Array(encryptionPackage[0]));
-      // const decryptedBuffer = await decryptMessage(encryptionPackage[0], key, encryptionPackage[1]);
+
+      // here is to test if the decryption works without passing the parameters between files
+      // const decryptedBuffer = await decryptMessage(
+      //   encryptionPackage[0],
+      //   key,
+      //   encryptionPackage[1]
+      // );
       // const decryptedM = arraybufferToString(decryptedBuffer);
       // console.log("decrypte message before sending:" + decryptedM);
-      socket.emit(
-        "sendMessage",
-        "this is the array buffer " + encryptionPackage[0],
-        () => setMessage("")
+      ///////////////////////////////////////////////////////////////////////////////////////
+
+      // convert them into string
+      const encryptionUnit8ArrayInString = `${new Uint8Array(
+        encryptionPackage[0]
+      )}`;
+      const ivInString = `${encryptionPackage[1]}`;
+      const StringToSend = encryptionUnit8ArrayInString + "iv:" + ivInString;
+      console.log(
+        "test encryption array buffer and iv in string:" + StringToSend
       );
-      console.log("sent");
+      socket.emit("sendMessage", StringToSend, () => setMessage(""));
     }
   };
 
