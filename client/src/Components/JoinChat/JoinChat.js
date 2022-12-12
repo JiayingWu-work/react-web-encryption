@@ -32,7 +32,7 @@ export default function SignIn() {
         </div>
         <Link
           onClick={(e) => (!name || !room ? e.preventDefault() : null)}
-          to={`/chat?name=${name}&room=${chatRoom}&key=${key}`}
+          to={`/chat?name=${name}&room=${chatRoom}&key=${chatRoom}`}
         >
           <button className={"button mt-20"} type="submit">
             join chat!
