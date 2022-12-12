@@ -5,8 +5,7 @@ import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import { encryptMessage } from "../../Encryption/index.js";
-
-import "./chat.css";
+import "./Chat.css";
 
 const ENDPOINT = "http://localhost:3001";
 
@@ -19,6 +18,11 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState([]);
   const [messages, setMessages] = useState([]);
   const [key, setKey] = useState("");
+
+  const urlToClipboard = () => {
+    const joinURL = "http://localhost:3000" + "/join?room=" + key;
+    navigator.clipboard.writeText(joinURL);
+  };
 
   useEffect(() => {
     const { name, room, key } = queryString.parse(window.location.search);
@@ -49,7 +53,7 @@ const Chat = ({ location }) => {
   const sendMessage = async (event) => {
     event.preventDefault();
     if (message) {
-      console.log("test the message in send message" + message);
+      // console.log("test the message in send message" + message);
       //encrypting messages with encryptMessage() before sending them to the server
       // encryptionPackage = [array buffer from encryption, iv in uint8array]
       const encryptionPackage = await encryptMessage(message, key);
@@ -70,9 +74,9 @@ const Chat = ({ location }) => {
       )}`;
       const ivInString = `${encryptionPackage[1]}`;
       const StringToSend = encryptionUnit8ArrayInString + "iv:" + ivInString;
-      console.log(
-        "test encryption array buffer and iv in string:" + StringToSend
-      );
+      // console.log(
+      //   "test encryption array buffer and iv in string:" + StringToSend
+      // );
       socket.emit("sendMessage", StringToSend, () => setMessage(""));
     }
   };
@@ -81,11 +85,12 @@ const Chat = ({ location }) => {
     <>
       <div className="everythingContainer">
         <div className="headingContainer">
-          <div className="chat-heading">
-            Y O U R _ S E C U R E _ M E S S A G E
+          <div className="chat-heading">Y O U R _ S E C U R E _ C H A T</div>
+          <div className="subheading">
+            <button className="subButton" onClick={urlToClipboard}>
+              Click for chat URL
+            </button>
           </div>
-          <div className="subheading">YOU GOT A SECURE MESSAGE</div>
-          {/* <div className="box"></div> */}
         </div>
         <div className="container">
           <InfoBar room={room} />

@@ -92,15 +92,7 @@ const Message = ({ message: { text, user }, name }) => {
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
-        {isHovering ? (
-          <p className="messageText colorWhite">
-            {ReactEmoji.emojify(decrypt)}
-          </p>
-        ) : (
-          <p className="messageText colorWhite">
-            Your Message is encrypted. Hover me to reveal!
-          </p>
-        )}
+        <p className="messageText colorWhite">{ReactEmoji.emojify(decrypt)}</p>
       </div>
     </div>
   ) : (
@@ -117,7 +109,7 @@ const Message = ({ message: { text, user }, name }) => {
           <p className="messageText colorDark">{ReactEmoji.emojify(decrypt)}</p>
         ) : (
           <p className="messageText colorDark">
-            Your Message is encrypted. Hover me to reveal!
+            Hover to reveal the encrypted message
           </p>
         )}
         {/* <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p> */}

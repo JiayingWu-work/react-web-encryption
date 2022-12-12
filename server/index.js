@@ -20,10 +20,10 @@ app.use(cors());
 app.use(router);
 
 io.on('connect', (socket) => {
-  console.log(`socketID ${socket.id}`); 
+  // console.log(`socketID ${socket.id}`); 
 
   socket.on('join', ({ name, room }, callback) => {
-    console.log(`user connected ${name}`); 
+    // console.log(`user connected ${name}`); 
     const { error, user } = addUser({ id: socket.id, name, room });
 
     if(error) return callback(error);

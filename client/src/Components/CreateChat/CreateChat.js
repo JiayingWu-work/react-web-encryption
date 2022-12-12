@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import "./Join.css";
+import "./CreateChat.css";
 
 export default function SignIn() {
   const [name, setName] = useState("");
@@ -24,6 +24,7 @@ export default function SignIn() {
           .then(function (jsonWebKey) {
             console.log("string key generated initially:" + jsonWebKey.k);
             setKey(jsonWebKey.k);
+            setRoom(jsonWebKey.k);
           })
           .catch(function (err) {
             console.error(err);
@@ -43,20 +44,20 @@ export default function SignIn() {
             onChange={(event) => setName(event.target.value)}
           />
         </div>
-        <div>
+        {/* <div>
           <input
             placeholder="Room"
             className="joinInput mt-20"
             type="text"
             onChange={(event) => setRoom(event.target.value)}
           />
-        </div>
+        </div> */}
         <Link
           onClick={(e) => (!name || !room ? e.preventDefault() : null)}
           to={`/chat?name=${name}&room=${room}&key=${key}`}
         >
           <button className={"button mt-20"} type="submit">
-            Sign In
+            start chatting!
           </button>
         </Link>
       </div>
