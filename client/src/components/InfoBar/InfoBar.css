@@ -8,7 +8,7 @@
   width: 100%;
   border-radius: 20px;
   padding: 2% 0;
-  font-size: 0.8em;
+  font-size: 0.8vw;
 }
 
 .leftInnerContainer {
@@ -30,15 +30,8 @@
   margin-right: 5%;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
-  .infoBar {
-    height: 10%;
-    font-size: 0.5rem;
-  }
-}
-
 @media (min-width: 480px) and (max-width: 680px) {
   .infoBar {
-    height: 10%;
+    height: 10%; 
   }
 }

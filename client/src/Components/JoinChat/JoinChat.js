@@ -13,9 +13,9 @@ export default function SignIn() {
 
   useEffect(() => {
     setchatRoom(room);
-    console.log("print room" + chatRoom);
+    // console.log("print room" + chatRoom);
     setKey(chatRoom);
-    console.log("print key" + key);
+    // console.log("print key" + key);
   }, []);
 
   return (

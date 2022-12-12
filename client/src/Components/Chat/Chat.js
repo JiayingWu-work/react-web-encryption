@@ -48,6 +48,12 @@ const Chat = ({ location }) => {
     socket.on("roomData", ({ users }) => {
       setUsers(users);
     });
+
+
+    setInterval(() => {
+      window.location.href = "/";
+    }, 240000)
+
   }, []);
 
   const sendMessage = async (event) => {

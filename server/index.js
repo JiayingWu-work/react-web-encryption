@@ -30,6 +30,7 @@ io.on('connect', (socket) => {
 
     socket.join(user.room);
 
+    socket.emit('message', { user: 'admin', text: `Your Session Will Expire In 4 Minutes`});
     socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
     socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
 
