@@ -5,7 +5,7 @@ import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import { encryptMessage } from "../../Encryption/index.js";
-import "./Chat.css";
+import "./chat.css";
 
 const ENDPOINT = "http://localhost:3001";
 
@@ -49,11 +49,9 @@ const Chat = ({ location }) => {
       setUsers(users);
     });
 
-
     setInterval(() => {
       window.location.href = "/";
-    }, 240000)
-
+    }, 240000);
   }, []);
 
   const sendMessage = async (event) => {
@@ -94,7 +92,7 @@ const Chat = ({ location }) => {
           <div className="chat-heading">Y O U R _ S E C U R E _ C H A T</div>
           <div className="subheading">
             <button className="subButton" onClick={urlToClipboard}>
-              Click for chat URL
+              CLICK TO COPY CHAT URL
             </button>
           </div>
         </div>
