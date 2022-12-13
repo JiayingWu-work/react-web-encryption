@@ -7,7 +7,7 @@ import Input from "../Input/Input";
 import { encryptMessage } from "../../Encryption/index.js";
 import "./chat.css";
 
-const ENDPOINT = "https://nameless-gorge-00432.herokuapp.com/";
+const ENDPOINT = "https://radiant-temple-08988.herokuapp.com/";
 
 let socket;
 
