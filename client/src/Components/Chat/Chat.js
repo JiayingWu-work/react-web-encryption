@@ -20,7 +20,7 @@ const Chat = ({ location }) => {
   const [key, setKey] = useState("");
 
   const urlToClipboard = () => {
-    const joinURL = "http://localhost:3000" + "/join?room=" + key;
+    const joinURL = window.location.protocol + "//" + window.location.host + "/join?room=" + key;
     navigator.clipboard.writeText(joinURL);
   };
 
