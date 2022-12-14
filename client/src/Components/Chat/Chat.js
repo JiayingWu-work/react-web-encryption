@@ -7,7 +7,9 @@ import Input from "../Input/Input";
 import { encryptMessage } from "../../Encryption/index.js";
 import "./chat.css";
 
-const ENDPOINT = "https://sample.herokuapp.com/";
+const ENDPOINT = "https://radiant-peak-64790.herokuapp.com/";
+// "http://localhost:3001";
+// "https://radiant-peak-64790.herokuapp.com/";
 
 let socket;
 
@@ -20,7 +22,12 @@ const Chat = ({ location }) => {
   const [key, setKey] = useState("");
 
   const urlToClipboard = () => {
-    const joinURL = window.location.protocol + "//" + window.location.host + "/join?room=" + key;
+    const joinURL =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      "/join?room=" +
+      key;
     navigator.clipboard.writeText(joinURL);
   };
 
