@@ -1,5 +1,5 @@
 [build]
-  command = "react-scripts --openssl-legacy-provider build
+  command = "npm run build"
   publish = "client/build"
   base = "client"
 
