@@ -6,7 +6,6 @@ import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import { encryptMessage } from "../../Encryption/index.js";
 import "./chat.css";
-import { Link } from "react-router-dom";
 import QR from "../QRCode/QR";
 
 const ENDPOINT = "https://radiant-peak-64790.herokuapp.com/";
@@ -32,10 +31,6 @@ const Chat = ({ location }) => {
       key;
     navigator.clipboard.writeText(joinURL);
   };
-
-  const linkedValue = () => {
-    return window.location.protocol + "//" + window.location.host +"/join?room=" + key; 
-  }
 
   useEffect(() => {
     const { name, room, key } = queryString.parse(window.location.search);
@@ -75,16 +70,6 @@ const Chat = ({ location }) => {
       // encryptionPackage = [array buffer from encryption, iv in uint8array]
       const encryptionPackage = await encryptMessage(message, key);
 
-      // here is to test if the decryption works without passing the parameters between files
-      // const decryptedBuffer = await decryptMessage(
-      //   encryptionPackage[0],
-      //   key,
-      //   encryptionPackage[1]
-      // );
-      // const decryptedM = arraybufferToString(decryptedBuffer);
-      // console.log("decrypte message before sending:" + decryptedM);
-      ///////////////////////////////////////////////////////////////////////////////////////
-
       // convert them into string
       const encryptionUnit8ArrayInString = `${new Uint8Array(
         encryptionPackage[0]
@@ -98,7 +83,6 @@ const Chat = ({ location }) => {
     }
   };
 
-  // <QR LinkValue={window.location.protocol + "//" + window.location.host +"/join?room=" + key} />
   return (
     <>
       <div className="everythingContainer">
@@ -110,7 +94,7 @@ const Chat = ({ location }) => {
               </button>
             </div>
             <div className="qr-container">
-              <QR LinkValue={window.location.protocol + "//" + window.location.host +"/join?room=" + key} />
+              <QR LinkValue={`${window.location.protocol}//${window.location.host}/join?room=${key}`} />
             </div>
           </div>
         <div className="container">
