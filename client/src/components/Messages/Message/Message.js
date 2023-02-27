@@ -3,12 +3,16 @@ import "./Message.css";
 import queryString from "query-string";
 import ReactEmoji from "react-emoji";
 import { decryptMessage } from "../../../Encryption/index.js";
+import e from "cors";
 
 const Message = ({ message: { text, user }, name }) => {
+  let indexofV = text.indexOf("iv:");
+  if (indexofV == -1) indexofV = 50;
+  const originalDecrption = text.substr(0, indexofV);;
+
+  console.log("orginalDecryption:" + originalDecrption);
   const [decrypt, setDecrypt] = useState("");
   const { key } = queryString.parse(window.location.search);
-
-  let indexofV = text.indexOf("iv:");
 
   if (indexofV !== -1) {
     const u8aEncrypted = text.substr(0, indexofV);
@@ -99,9 +103,7 @@ const Message = ({ message: { text, user }, name }) => {
         {isHovering ? (
           <p className="messageText colorDark">{ReactEmoji.emojify(decrypt)}</p>
         ) : (
-          <p className="messageText colorDark">
-            Hover to reveal the encrypted message
-          </p>
+          <p className="messageText colorDark">{originalDecrption}</p>
         )}
         {/* <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p> */}
       </div>

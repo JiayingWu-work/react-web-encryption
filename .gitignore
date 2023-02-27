@@ -11,3 +11,6 @@ server/package.json
 .netlify
 
 .DS_Store
+client/package-lock.json
+client/package-lock.json
+client/package.json
