@@ -1,7 +1,6 @@
 
 
 export const encryptMessage = async (message, stringKey) => {
-  console.log("message in encryption method:" + message);
 
   let iv = window.crypto.getRandomValues(new Uint8Array(12));
   console.log("iv in encryption:"+ iv);
@@ -11,7 +10,6 @@ export const encryptMessage = async (message, stringKey) => {
   console.log("unit8Array message in encryption method:" + unit8ArrayrMessage);
 
   const cryptoKey = await getCryptoKey(stringKey, "encrypt");
-  console.log("key in encryption method:" + cryptoKey);
 
   const encryptedArrayBuffer = await window.crypto.subtle.encrypt(
     {

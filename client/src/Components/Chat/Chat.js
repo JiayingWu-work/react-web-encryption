@@ -6,6 +6,8 @@ import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import { encryptMessage } from "../../Encryption/index.js";
 import "./chat.css";
+import { Link } from "react-router-dom";
+import QR from "../QRCode/QR";
 
 const ENDPOINT = "https://radiant-peak-64790.herokuapp.com/";
 // "http://localhost:3001";
@@ -30,6 +32,10 @@ const Chat = ({ location }) => {
       key;
     navigator.clipboard.writeText(joinURL);
   };
+
+  const linkedValue = () => {
+    return window.location.protocol + "//" + window.location.host +"/join?room=" + key; 
+  }
 
   useEffect(() => {
     const { name, room, key } = queryString.parse(window.location.search);
@@ -58,7 +64,7 @@ const Chat = ({ location }) => {
 
     setInterval(() => {
       window.location.href = "/";
-    }, 240000);
+    }, 480000);
   }, []);
 
   const sendMessage = async (event) => {
@@ -92,17 +98,21 @@ const Chat = ({ location }) => {
     }
   };
 
+  // <QR LinkValue={window.location.protocol + "//" + window.location.host +"/join?room=" + key} />
   return (
     <>
       <div className="everythingContainer">
         <div className="headingContainer">
           <div className="chat-heading">Y O U R _ S E C U R E _ C H A T</div>
-          <div className="subheading">
-            <button className="subButton" onClick={urlToClipboard}>
-              CLICK TO COPY CHAT URL
-            </button>
+            <div className="subheading">
+              <button className="subButton" onClick={urlToClipboard}>
+                CLICK TO COPY CHAT URL
+              </button>
+            </div>
+            <div className="qr-container">
+              <QR LinkValue={window.location.protocol + "//" + window.location.host +"/join?room=" + key} />
+            </div>
           </div>
-        </div>
         <div className="container">
           <InfoBar room={room} />
           <Messages messages={messages} name={name} />
@@ -112,7 +122,6 @@ const Chat = ({ location }) => {
             sendMessage={sendMessage}
           />
         </div>
-        {/* <div className="vertical">ENCRYPTED ENCRYPTED ENCRYPTED ENCRYPTED</div> */}
       </div>
     </>
   );

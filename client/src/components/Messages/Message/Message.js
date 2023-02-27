@@ -8,16 +8,8 @@ const Message = ({ message: { text, user }, name }) => {
   const [decrypt, setDecrypt] = useState("");
   const { key } = queryString.parse(window.location.search);
 
-  //////////////////////this chuck is for testing
-  console.log("type of text:" + typeof text);
-
-  console.log("text content:" + text);
-  ///////////////////////////////////////////////
-
   let indexofV = text.indexOf("iv:");
-  console.log(indexofV);
 
-  // if index == -1 then the message is from the server
   if (indexofV !== -1) {
     const u8aEncrypted = text.substr(0, indexofV);
     const array_u8aEncrypted = Uint8Array.from(u8aEncrypted.split(","));
@@ -63,7 +55,6 @@ const Message = ({ message: { text, user }, name }) => {
     useEffect(() => {
       setDecrypt(text);
     }, []);
-    console.log("print welcome:" + text);
   }
 
   let isSentByCurrentUser = false;

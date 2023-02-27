@@ -1,0 +1,22 @@
+.qrcode-container {
+    background-color: #612d98;
+    height: 75px;
+    overflow: none;
+    justify-content: center;
+    width: 14vw;
+    padding-top: 4.3%;
+    display: inline-flex;
+  }
+  
+  .qr-chat-heading {
+    background-size: auto 60vh;
+    align-items: center;
+    padding: 2rem;
+    font-size: 3vw;
+    font-weight: bolder;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: none !important;
+    color: black !important;
+    width: 40%;
+  }
+
