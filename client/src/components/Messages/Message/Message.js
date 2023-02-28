@@ -3,12 +3,19 @@ import "./Message.css";
 import queryString from "query-string";
 import ReactEmoji from "react-emoji";
 import { decryptMessage } from "../../../Encryption/index.js";
-import e from "cors";
 
 const Message = ({ message: { text, user }, name }) => {
   let indexofV = text.indexOf("iv:");
-  if (indexofV == -1) indexofV = 50;
-  const originalDecrption = text.substr(0, indexofV);;
+  if (indexofV == -1) indexofV = 100000;
+
+  // const originalDecrption = text.substr(0, indexofV);
+  let partCipher = text.substr(0, 40);
+  let originalDecrption = null;
+  if (indexofV == 100000) {
+    originalDecrption = text.substr(0, indexofV);
+  } else {
+    originalDecrption = `${partCipher}...[${indexofV} bytes total]`;
+  }
 
   console.log("orginalDecryption:" + originalDecrption);
   const [decrypt, setDecrypt] = useState("");
@@ -76,12 +83,14 @@ const Message = ({ message: { text, user }, name }) => {
     setIsHovering(false);
   };
 
+  let isSentByAdmin = false;
+  if (indexofV == 100000) {
+    isSentByAdmin = true;
+  }
+
   return isSentByCurrentUser ? (
     <div className="messageContainer justifyEnd">
       <p className="sentText pr-10">{trimmedName}</p>
-      {/* <div className="messageBox backgroundYellow">
-        <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
-      </div> */}
       <div
         className="messageBox backgroundYellow"
         onMouseOver={handleMouseOver}
@@ -92,20 +101,29 @@ const Message = ({ message: { text, user }, name }) => {
     </div>
   ) : (
     <div className="messageContainer justifyStart">
-      {/* <div className="messageBox backgroundLight">
-        <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
-      </div> */}
       <div
         className="messageBox backgroundLight"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
-        {isHovering ? (
+        {isSentByAdmin ? (
+          <p className="messageText colorDark">
+            {ReactEmoji.emojify(originalDecrption)}
+          </p>
+        ) : isHovering ? (
           <p className="messageText colorDark">{ReactEmoji.emojify(decrypt)}</p>
         ) : (
-          <p className="messageText colorDark">{originalDecrption}</p>
+          <p className="messageText colorDark">
+            {ReactEmoji.emojify(originalDecrption)}
+          </p>
         )}
-        {/* <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p> */}
+        {/* {isHovering ? (
+          <p className="messageText colorDark">{ReactEmoji.emojify(decrypt)}</p>
+        ) : (
+          <p className="messageText colorDark">
+            {ReactEmoji.emojify(originalDecrption)}
+          </p>
+        )} */}
       </div>
       <p className="sentText pl-10 ">{user}</p>
     </div>
