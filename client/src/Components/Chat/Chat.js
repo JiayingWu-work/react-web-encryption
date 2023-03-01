@@ -88,15 +88,17 @@ const Chat = ({ location }) => {
       <div className="everythingContainer">
         <div className="headingContainer">
           <div className="chat-heading">Y O U R _ S E C U R E _ C H A T</div>
-            <div className="subheading">
-              <button className="subButton" onClick={urlToClipboard}>
-                CLICK TO COPY CHAT URL
-              </button>
-            </div>
-            <div className="qr-container">
-              <QR LinkValue={`${window.location.protocol}//${window.location.host}/join?room=${key}`} />
-            </div>
+          <div className="subheading">
+            <button className="subButton" onClick={urlToClipboard}>
+              CLICK TO COPY CHAT URL
+            </button>
           </div>
+          <div className="qr-container">
+            <QR
+              LinkValue={`${window.location.protocol}//${window.location.host}/join?room=${key}`}
+            />
+          </div>
+        </div>
         <div className="container">
           <InfoBar room={room} />
           <Messages messages={messages} name={name} />

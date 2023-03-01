@@ -1,12 +1,9 @@
-
-
 export const encryptMessage = async (message, stringKey) => {
-
   let iv = window.crypto.getRandomValues(new Uint8Array(12));
-  console.log("iv in encryption:"+ iv);
+  console.log("iv in encryption:" + iv);
 
   //message needs to be converted into arrayBuffer so aes-gcm can take it as a parameter
-  var unit8ArrayrMessage = new TextEncoder().encode(message)
+  var unit8ArrayrMessage = new TextEncoder().encode(message);
   console.log("unit8Array message in encryption method:" + unit8ArrayrMessage);
 
   const cryptoKey = await getCryptoKey(stringKey, "encrypt");
@@ -19,9 +16,12 @@ export const encryptMessage = async (message, stringKey) => {
     cryptoKey,
     unit8ArrayrMessage
   );
-  console.log("encrypted array buffer message in encryption method:" + encryptedArrayBuffer);
-  
-  return  [ encryptedArrayBuffer, iv ];
+  console.log(
+    "encrypted array buffer message in encryption method:" +
+      encryptedArrayBuffer
+  );
+
+  return [encryptedArrayBuffer, iv];
 };
 
 // convert the string key from the url back to cryptokey for
@@ -47,11 +47,14 @@ export const getCryptoKey = (key, usage) => {
 
 export const arraybufferToString = (arrayBuffer) => {
   return new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer));
-}
+};
 
 //abMessage --> array buffer message
 export const decryptMessage = async (abMessage, stringKey, iv) => {
-  console.log("array buffer message passed to decryption method:" + new Uint8Array(abMessage));
+  console.log(
+    "array buffer message passed to decryption method:" +
+      new Uint8Array(abMessage)
+  );
 
   let cryptoKey = await getCryptoKey(stringKey, "decrypt");
   console.log("crypto key converted in decryption method:" + cryptoKey);

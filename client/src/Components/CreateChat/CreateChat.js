@@ -14,19 +14,19 @@ export default function SignIn() {
         "encrypt",
         "decrypt",
       ])
-      .then(function (key) {
+      .then(function(key) {
         console.log("cryptokey generated initially" + key);
         window.crypto.subtle
           .exportKey(
             "jwk", //can be "jwk" or "raw"
             key //extractable must be true
           )
-          .then(function (jsonWebKey) {
+          .then(function(jsonWebKey) {
             console.log("string key generated initially:" + jsonWebKey.k);
             setKey(jsonWebKey.k);
             setRoom(jsonWebKey.k);
           })
-          .catch(function (err) {
+          .catch(function(err) {
             console.error(err);
           });
       });
@@ -43,7 +43,7 @@ export default function SignIn() {
             type="text"
             onChange={(event) => setName(event.target.value)}
           />
-        </div> 
+        </div>
         <Link
           onClick={(e) => (!name || !room ? e.preventDefault() : null)}
           to={`/chat?name=${name}&room=${room}&key=${key}`}

@@ -32,8 +32,7 @@
   background-color: transparent;
   cursor: pointer;
   margin-left: 12vw;
-  white-space: nowrap
-
+  white-space: nowrap;
 }
 
 .subheading {
@@ -47,7 +46,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 40vw;
   text-decoration-thickness: 8px;
-  text-decoration-color: transparent; 
+  text-decoration-color: transparent;
   text-decoration-line: underline;
   padding-bottom: 2%;
 }
@@ -87,14 +86,14 @@
     display: none;
   }
 }
-@media (min-width: 0px) and (max-width: 425px){
-  .qr-container{
+@media (min-width: 0px) and (max-width: 425px) {
+  .qr-container {
     display: hidden;
   }
-  .subheading{
-    padding-top: 30px; 
+  .subheading {
+    padding-top: 30px;
   }
-  .chat-heading{
+  .chat-heading {
     padding-top: 20px;
   }
 }
@@ -134,8 +133,6 @@
     /* padding-right: 25px; */
     /* margin-left: 9vw; */
     margin-right: 2vw;
-
-
   }
 
   .container {
@@ -145,7 +142,6 @@
   .qr-container {
     display: none;
   }
-  
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -184,7 +180,6 @@
   .subButton {
     justify-content: center;
   }
-  
 }
 
 @media (min-width: 1800px) {
@@ -197,7 +192,6 @@
   .qr-container {
     margin: auto;
   }
-
 }
 
 .qr-container {
