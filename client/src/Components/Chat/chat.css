@@ -1,0 +1,199 @@
+.everythingContainer {
+  background-color: #ffff00;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.headingContainer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.chat-heading {
+  background-size: auto 60vh;
+  align-items: center;
+  padding: 2rem;
+  font-size: 3vw;
+  font-weight: bolder;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: none !important;
+  color: black !important;
+  width: 40%;
+}
+
+.subButton {
+  display: fixed;
+  border-style: dashed outset outset dashed;
+  border-radius: 10px;
+  z-index: 3;
+  font-size: 1.75vw;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 12vw;
+  white-space: nowrap;
+}
+
+.subheading {
+  z-index: 3;
+  padding-top: 5vw;
+  /* justify-content: right; */
+  /* padding-left: 10rem; */
+  /* right: 40%; */
+  font-size: 2.5vw;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 40vw;
+  text-decoration-thickness: 8px;
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  padding-bottom: 2%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-content: space-around;
+  background: #612d98;
+  border-radius: 10px;
+  height: 80%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .headingContainer {
+    height: 9%;
+  }
+
+  .subheading {
+    padding-top: 2.8rem;
+    width: 45%;
+    text-decoration-thickness: 4px;
+  }
+
+  .chat-heading {
+    width: 50%;
+  }
+
+  .container {
+    width: 95%;
+  }
+  .qr-container {
+    display: none;
+  }
+}
+@media (min-width: 0px) and (max-width: 425px) {
+  .qr-container {
+    display: hidden;
+  }
+  .subheading {
+    padding-top: 30px;
+  }
+  .chat-heading {
+    padding-top: 20px;
+  }
+}
+@media (min-width: 426px) and (max-width: 480px) {
+  .headingContainer {
+    height: 10.5%;
+  }
+
+  .subheading {
+    padding-top: 2.8rem;
+    width: 45%;
+    text-decoration-thickness: 4px;
+  }
+
+  .chat-heading {
+    width: 50%;
+  }
+
+  .container {
+    width: 95%;
+  }
+  .qr-container {
+    display: none;
+  }
+
+  .subheading {
+    padding-top: 45px;
+    /* padding-right: 25px; */
+    /* margin-left: 9vw; */
+    margin-left: 4vw;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .subheading {
+    padding-top: 85px;
+    /* padding-right: 25px; */
+    /* margin-left: 9vw; */
+    margin-right: 2vw;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .qr-container {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .subheading {
+    padding-top: 85px;
+    padding-left: 8.5vw;
+  }
+
+  .subButton {
+    border-style: dashed outset outset dashed;
+    border-radius: 10px;
+    z-index: 3;
+    font-size: 1.5vw;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .qr-container {
+    display: hidden;
+  }
+}
+
+@media (max-width: 320px) {
+  .qr-container {
+    display: hidden;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1800px) {
+  .subheading {
+    padding-top: 85px;
+    padding-left: 8.5vw;
+    justify-content: center;
+  }
+
+  .subButton {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1800px) {
+  .subheading {
+    padding-top: 4.3%;
+    padding-left: 12vw;
+    justify-content: center;
+  }
+
+  .qr-container {
+    margin: auto;
+  }
+}
+
+.qr-container {
+  margin: auto;
+}

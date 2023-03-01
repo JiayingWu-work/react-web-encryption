@@ -1,0 +1,92 @@
+html,
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+#root {
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.joinOuterContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  align-items: center;
+  background-color: #faff1a;
+}
+
+.joinInnerContainer {
+  width: 30%;
+}
+
+.joinInput {
+  border-radius: 0 #7943bd;
+  padding: 15px 20px;
+  width: 100%;
+  border-color: #7943bd;
+  justify-content: center;
+  text-align: center;
+}
+
+.heading {
+  position: flex;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #7943bd;
+  color: #7943bd;
+  font-size: 30px;
+  color: #000;
+  justify-self: center;
+}
+
+.button {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #7943bd;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  width: 100%;
+}
+
+.mt-20 {
+  margin-top: 20px;
+  border-color: #7943bd;
+}
+
+@media (min-width: 320px) and (max-width: 1400px) {
+  .joinOuterContainer {
+    height: 100%;
+  }
+
+  .joinInnerContainer {
+    width: 90%;
+  }
+
+  .heading {
+    width: 100%;
+  }
+}
+
+@media (min-width: 671px) and (max-width: 1400px) {
+  .joinOuterContainer {
+    height: 100%;
+  }
+
+  .joinInnerContainer {
+    width: 30%;
+  }
+}
+
+button:focus {
+  outline: 0;
+}

@@ -1,1 +1,16 @@
-node_modules
+/netlify
+client/package-lock.json
+
+client/package.json
+
+server/node_modules/.package-lock.json
+
+server/package.json
+
+# Local Netlify folder
+.netlify
+
+.DS_Store
+client/package-lock.json
+client/package-lock.json
+client/package.json
